@@ -10,5 +10,8 @@ package kjarkko.stardust;
  * @author jarkko
  */
 public class Main {
-    
+
+    public static void main(String[] args) {
+        
+    }
 }
