@@ -1,22 +1,20 @@
-
 package kjarkko.stardust.logic;
 
 import java.awt.Color;
-import java.math.BigInteger;
 
 public class Planet {
-    private final int id;
+
+    public final int id;
+    public final double radius;
+    public final double mass;
     private final Coordinate location;
     private final Vector movement;
-    private final BigInteger mass;
-    
     private final Color color;
     private final String name;
-    public final int radius;
 
-    public Planet(int id, Coordinate location, Vector movement, BigInteger mass, 
-            Color color, String name, int radius) {
-        this.id = id;
+    public Planet(Coordinate location, Vector movement, double mass,
+            Color color, String name, double radius) {
+        this.id = Planets.get().getPlanetIdCounter();
         this.location = location;
         this.movement = movement;
         this.mass = mass;
@@ -24,6 +22,33 @@ public class Planet {
         this.name = name;
         this.radius = radius;
     }
-    
-    
+
+    public void updateLocation(int elapsedTime) {
+        location.setX(location.getX() + movement.getVx() * elapsedTime);
+        location.setY(location.getY() + movement.getVy() * elapsedTime);
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Coordinate getLocation() {
+        return location;
+    }
+
+    public double getMass() {
+        return mass;
+    }
+
+    public Vector getMovement() {
+        return movement;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
 }
