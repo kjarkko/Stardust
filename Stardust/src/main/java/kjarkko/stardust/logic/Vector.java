@@ -1,29 +1,40 @@
 package kjarkko.stardust.logic;
 
+import static java.lang.Math.*;
+
 public class Vector {
 
-    private double vx;
-    private double vy;
+    private double x;
+    private double y;
 
     public Vector(double vx, double vy) {
-        this.vx = vx;
-        this.vy = vy;
+        this.x = vx;
+        this.y = vy;
     }
 
-    public double getVx() {
-        return vx;
+    public double getX() {
+        return x;
     }
 
-    public double getVy() {
-        return vy;
+    public double getY() {
+        return y;
     }
 
     public void addVector(Vector v) {
-        vx += v.vx;
-        vy += v.vy;
+        x += v.x;
+        y += v.y;
     }
 
     public Vector createNegative() {
-        return new Vector(-vx, -vy);
+        return new Vector(-x, -y);
+    }
+
+    public void reset() {
+        x = 0;
+        y = 0;
+    }
+
+    public double value() {
+        return sqrt(pow(x, 2) + pow(y, 2));
     }
 }

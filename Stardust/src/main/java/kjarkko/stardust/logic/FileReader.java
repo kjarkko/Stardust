@@ -66,21 +66,21 @@ public class FileReader {
         try {
             radius = Double.parseDouble(values[1]);
             mass = Double.parseDouble(values[2]);
-
+            
             String[] loc = values[3].split("-");
             double x = Double.parseDouble(loc[0]);
             double y = Double.parseDouble(loc[1]);
             location = new Coordinate(x, y);
-
+            
             String[] mv = values[4].split("-");
             x = Double.parseDouble(mv[0]);
             y = Double.parseDouble(mv[1]);
             movement = new Vector(x, y);
-
+            
             color = Color.decode(values[5]);
             name = values[6];
         } catch (Exception e) {
-            System.out.println("Error parsing line: " + line + "\nMessage: " + e);
+            System.out.println("Error parsing line: " + line + "\nMessage: " + e.getLocalizedMessage());
             return null;
         }
 

@@ -1,5 +1,7 @@
 package kjarkko.stardust.logic;
 
+import static java.lang.Math.*;
+
 public class Coordinate {
 
     private double x;
@@ -8,6 +10,10 @@ public class Coordinate {
     public Coordinate(double x, double y) {
         this.x = x;
         this.y = y;
+    }
+
+    public double distance(Coordinate c) {
+        return sqrt(pow(x - c.x, 2) + pow(y - c.y, 2));
     }
 
     public double getX() {
@@ -25,4 +31,5 @@ public class Coordinate {
     public void setY(double y) {
         this.y = y;
     }
+
 }
