@@ -51,8 +51,8 @@ public class FileReaderTest {
         assertEquals(3, p.getLocation().getX(), 0.01);
         assertEquals(4, p.getLocation().getY(), 0.01);
 
-        assertEquals(5, p.getMovement().getX(), 0.01);
-        assertEquals(6, p.getMovement().getY(), 0.01);
+        assertEquals(5, p.getVelocity().getX(), 0.01);
+        assertEquals(6, p.getVelocity().getY(), 0.01);
 
         assertEquals(Color.decode("0xffffff"), p.getColor());
         assertEquals("asd;;", p.getName());

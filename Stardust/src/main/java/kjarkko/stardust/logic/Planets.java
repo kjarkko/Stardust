@@ -40,10 +40,17 @@ public class Planets {
         planets.removeIf((p) -> p.id == id);
     }
 
+    public void update() {
+        calculateForces();
+        updateLocations(Settings.getElapsedTime());
+    }
+
     public void calculateForces() {
         for (int i = 0; i < planets.size(); i++) {
             for (int j = i + 1; j < planets.size(); j++) {
-                planets.get(i).gravitationalForce(planets.get(j));
+                Vector f = planets.get(i).gravitationalForce(planets.get(j));
+                planets.get(i).getTempForce().addVector(f);
+                planets.get(j).getTempForce().addVector(f.createNegative());
             }
         }
     }
@@ -52,7 +59,7 @@ public class Planets {
         planets.forEach(p -> p.updateLocation(elapsedTime));
     }
 
-    public int getSize() {
+    public int size() {
         return planets.size();
     }
 }

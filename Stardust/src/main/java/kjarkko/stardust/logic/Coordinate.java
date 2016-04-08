@@ -12,8 +12,16 @@ public class Coordinate {
         this.y = y;
     }
 
-    public double distance(Coordinate c) {
-        return sqrt(pow(x - c.x, 2) + pow(y - c.y, 2));
+    public double distance(Coordinate that) {
+        return sqrt(pow(this.x - that.x, 2) + pow(this.y - that.y, 2));
+    }
+
+    public double xDistance(Coordinate that) {
+        return this.x - that.x;
+    }
+
+    public double yDistance(Coordinate that) {
+        return this.y - that.y;
     }
 
     public double getX() {
@@ -32,4 +40,11 @@ public class Coordinate {
         this.y = y;
     }
 
+    public void addX(double x) {
+        this.x += x;
+    }
+
+    public void addY(double y) {
+        this.y += y;
+    }
 }

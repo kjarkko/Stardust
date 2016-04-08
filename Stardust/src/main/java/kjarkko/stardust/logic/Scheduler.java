@@ -1,13 +1,58 @@
 package kjarkko.stardust.logic;
 
-public class Scheduler {
-    // asdasdasdassd
+import java.util.Timer;
+import java.util.TimerTask;
 
-    public void start() {
+public class Scheduler {
+
+    private static final TimerTask TASK;
+    private static final Timer TIMER;
+    private static boolean isRunning;
+    private static int taskFreq;
+
+    static {
+        TASK = new TimerTask() {
+            @Override
+            public void run() {
+                if (updateFreqHasChanged()) {
+                    TASK.cancel();
+                    newTask();
+                    return;
+                }
+
+                Planets.get().update();
+            }
+        };
+
+        TIMER = new Timer();
+        isRunning = false;
+    }
+
+    public static boolean updateFreqHasChanged() {
+        return taskFreq != Settings.getPlanetUpdateFrequencyMS();
+    }
+
+    public static void start() {
+        if (isRunning) {
+            return;
+        }
+
+        newTask();
+        isRunning = true;
+    }
+
+    public static void stop() {
+        if (!isRunning) {
+            return;
+        }
+
+        isRunning = false;
+        TIMER.cancel();
 
     }
 
-    public void stop() {
-
+    private static void newTask() {
+        taskFreq = Settings.getPlanetUpdateFrequencyMS();
+        TIMER.scheduleAtFixedRate(TASK, 0, taskFreq);
     }
 }

@@ -8,7 +8,7 @@ public class Settings {
 
     static {
         screenRefreshRateMS = 17; // Approximately 60Hz
-        planetUpdateRateMS = 17;
+        planetUpdateRateMS = 5;
         simulationSpeedMultiplier = 1;
     }
 

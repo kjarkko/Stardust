@@ -39,8 +39,9 @@ public class Planet {
     }
 
     public void updateLocation(int elapsedTime) {
-        location.setX(location.getX() + velocity.getX() * elapsedTime);
-        location.setY(location.getY() + velocity.getY() * elapsedTime);
+        velocity.addVector(deltaVelocity(elapsedTime));
+        location.addX(velocity.getX() * elapsedTime);
+        location.addY(velocity.getY() * elapsedTime);
     }
 
     /**
@@ -61,22 +62,19 @@ public class Planet {
     }
 
     /**
-     * Calculates the tempForce between itself and the planet given as the
+     * Calculates the force between itself and the planet given as the
      * parameter, adds the result to the tempForce variable
      *
      * @param p See above
+     * @return
      */
-    public void gravitationalForce(Planet p) {
+    public Vector gravitationalForce(Planet p) {
         double force = g * ((mass * p.mass) / pow(location.distance(p.location), 2));
-        // values [0, 1]
-        double x = 0.64;
 
-        double forceX = force * x;
-        double forceY = force * (1 - x);
-        Vector f = new Vector(forceX, forceY);
-        this.tempForce.addVector(f);
-        p.tempForce.addVector(f.createNegative());
+        double forceX;
+        double forceY;
 
+        // return new Vector(forceX, forceY);
         throw new UnsupportedOperationException();
     }
 
@@ -88,11 +86,15 @@ public class Planet {
         return location;
     }
 
-    public Vector getMovement() {
+    public Vector getVelocity() {
         return velocity;
     }
 
     public String getName() {
         return name;
+    }
+
+    public Vector getTempForce() {
+        return tempForce;
     }
 }

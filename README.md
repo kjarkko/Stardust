@@ -4,3 +4,7 @@
 ### Documentation
 - [Subject description](documentation/Subject_description.md)
 - [Time usage](documentation/time.md)
+
+Checkstyle https://htmlpreview.github.io/?https://github.com/kjarkko/Stardust/blob/master/documentation/checkstyle/site/checkstyle.html
+
+PIT https://htmlpreview.github.io/?https://github.com/kjarkko/Stardust/blob/master/documentation/pit/201604012045/index.html

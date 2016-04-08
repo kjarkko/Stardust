@@ -73,7 +73,7 @@ public class PlanetsTest {
                 2
         ));
         Planets.get().addAll(list);
-        assertEquals(2, Planets.get().getSize());
+        assertEquals(2, Planets.get().size());
     }
 
 }
