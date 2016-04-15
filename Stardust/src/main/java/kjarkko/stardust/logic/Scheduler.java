@@ -3,6 +3,11 @@ package kjarkko.stardust.logic;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * static class designed to call planets.update() at a set interval
+ *
+ * @author jarkko
+ */
 public class Scheduler {
 
     private static final TimerTask TASK;
@@ -32,6 +37,9 @@ public class Scheduler {
         return taskFreq != Settings.getPlanetUpdateRateMS();
     }
 
+    /**
+     * starts the simulation. if already running, does nothing.
+     */
     public static void start() {
         if (isRunning) {
             return;
@@ -41,6 +49,9 @@ public class Scheduler {
         isRunning = true;
     }
 
+    /**
+     * stops the simulation. if not running, does nothing.
+     */
     public static void stop() {
         if (!isRunning) {
             return;
@@ -54,5 +65,13 @@ public class Scheduler {
     private static void newTask() {
         taskFreq = Settings.getPlanetUpdateRateMS();
         TIMER.scheduleAtFixedRate(TASK, 0, taskFreq);
+    }
+
+    /**
+     *
+     * @return is the simulation currently running
+     */
+    public static boolean isRunning() {
+        return isRunning;
     }
 }

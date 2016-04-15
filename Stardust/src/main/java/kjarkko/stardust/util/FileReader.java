@@ -1,10 +1,13 @@
-package kjarkko.stardust.logic;
+package kjarkko.stardust.util;
 
+import kjarkko.stardust.util.Vector;
+import kjarkko.stardust.util.Coordinate;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import kjarkko.stardust.logic.Planet;
 
 public class FileReader {
 

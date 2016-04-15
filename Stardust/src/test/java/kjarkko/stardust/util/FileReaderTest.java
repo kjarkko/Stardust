@@ -1,7 +1,9 @@
-package kjarkko.stardust.logic;
+package kjarkko.stardust.util;
 
 import java.awt.Color;
-import static kjarkko.stardust.logic.FileReader.*;
+import kjarkko.stardust.logic.Planet;
+import kjarkko.stardust.logic.Settings;
+import static kjarkko.stardust.util.FileReader.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

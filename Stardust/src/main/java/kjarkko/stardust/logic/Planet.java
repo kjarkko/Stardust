@@ -1,17 +1,31 @@
 package kjarkko.stardust.logic;
 
+import kjarkko.stardust.util.Vector;
+import kjarkko.stardust.util.Coordinate;
 import java.awt.Color;
 import static java.lang.Math.*;
 
+/**
+ * A single planet with a location, velocity and such
+ *
+ * @author jarkko
+ */
 public class Planet {
 
-    public final double g = 6.67259E-11;
     private static int idCounter = 0;
 
+    /**
+     * Generates a unique id for each planet
+     *
+     * @return A unique id
+     */
     private static int createId() {
         return idCounter++;
     }
 
+    /**
+     * Resets the id counter to 0
+     */
     public static void resetId() {
         idCounter = 0;
     }
@@ -22,7 +36,13 @@ public class Planet {
     public final double mass;
     private final Coordinate location;
     private final Vector velocity;
+
+    /**
+     * Used to calculate the delta velocity of the planet between each tick, set
+     * to zero between each tick
+     */
     private final Vector tempForce;
+
     private final Color color;
     private final String name;
 
@@ -38,6 +58,14 @@ public class Planet {
         this.tempForce = new Vector(0, 0);
     }
 
+    /**
+     * Uses the tempForce variable to update the velocity and then updates the
+     * location based on the current velocity of the planet and the elapsed time
+     * since the last tick
+     *
+     * @param elapsedTime The time elapsed in seconds since the last tick in the
+     * simulation
+     */
     public void updateLocation(int elapsedTime) {
         velocity.addVector(deltaVelocity(elapsedTime));
         location.addX(velocity.getX() * elapsedTime);
@@ -49,7 +77,7 @@ public class Planet {
      * time elapsed. Resets tempForce.
      *
      * @param elapsedTime time elapsed in the simulation between the last call
-     * in seconds
+     * in seconds in the simulation
      * @return delta velocity, current velocity is completely ignored
      */
     public Vector deltaVelocity(int elapsedTime) {
@@ -69,7 +97,8 @@ public class Planet {
      * @return
      */
     public Vector gravitationalForce(Planet p) {
-        double force = g * ((mass * p.mass) / pow(location.distance(p.location), 2));
+        double force = 6.67259E-11
+                * ((mass * p.mass) / pow(location.distance(p.location), 2));
 
         double forceX;
         double forceY;
@@ -86,6 +115,10 @@ public class Planet {
         return location;
     }
 
+    /**
+     *
+     * @return The current velocity of the planet in m/s as a vector
+     */
     public Vector getVelocity() {
         return velocity;
     }
@@ -94,6 +127,10 @@ public class Planet {
         return name;
     }
 
+    /**
+     * @see kjarkko.stardust.logic.Planet#tempForce
+     * @return The tempForce vector
+     */
     public Vector getTempForce() {
         return tempForce;
     }

@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2016</copyright>
     <item>
-      <title>File: 8,
+      <title>File: 11,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -74,20 +74,6 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#kjarkko.stardust.logic.FileReader.java">kjarkko/stardust/logic/FileReader.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="${project.url}/checkstyle.html#kjarkko.stardust.Main.java">kjarkko/stardust/Main.java</a>
                 </td>
                 <td>
@@ -102,7 +88,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#kjarkko.stardust.logic.Coordinate.java">kjarkko/stardust/logic/Coordinate.java</a>
+                  <a href="${project.url}/checkstyle.html#kjarkko.stardust.gui.MainWindow.java">kjarkko/stardust/gui/MainWindow.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#kjarkko.stardust.util.Vector.java">kjarkko/stardust/util/Vector.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#kjarkko.stardust.util.Coordinate.java">kjarkko/stardust/util/Coordinate.java</a>
                 </td>
                 <td>
                   0
@@ -130,7 +144,7 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#kjarkko.stardust.logic.Vector.java">kjarkko/stardust/logic/Vector.java</a>
+                  <a href="${project.url}/checkstyle.html#kjarkko.stardust.logic.Planets.java">kjarkko/stardust/logic/Planets.java</a>
                 </td>
                 <td>
                   0
@@ -144,7 +158,35 @@ under the License.
               </tr>
                           <tr>
                 <td>
-                  <a href="${project.url}/checkstyle.html#kjarkko.stardust.logic.Planets.java">kjarkko/stardust/logic/Planets.java</a>
+                  <a href="${project.url}/checkstyle.html#kjarkko.stardust.gui.StartWindow.java">kjarkko/stardust/gui/StartWindow.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#kjarkko.stardust.gui.PlanetCanvas.java">kjarkko/stardust/gui/PlanetCanvas.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#kjarkko.stardust.util.FileReader.java">kjarkko/stardust/util/FileReader.java</a>
                 </td>
                 <td>
                   0

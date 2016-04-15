@@ -7,3 +7,4 @@ Date | Time | Description
 01.04.2016 | 2h | Refactoring code, fixing broken tests
 08.04.2016 | 4h | Scheduler, minor changes elsewhere
 15.04.2016 | 3h | Creating tests, some tweaks to logic
+15.04.2016 | 2h | Javadoc, attempted to create a GUI

@@ -44,7 +44,7 @@ public class SettingsTest {
         assertEquals(17, getScreenRefreshRateMS());
         assertEquals(5, getPlanetUpdateRateMS());
         assertEquals(1, getSimulationSpeedMultiplier());
-        assertEquals((int) (1000 / 5), getElapsedTimeMS());
+        assertEquals((int) (1000 / 5), getElapsedTime());
     }
 
     @Test
@@ -111,7 +111,7 @@ public class SettingsTest {
     }
 
     @Test
-    public void testGetElapsedTimeMS() {
+    public void testGetElapsedTime() {
 
     }
 

@@ -1,5 +1,7 @@
 package kjarkko.stardust.logic;
 
+import kjarkko.stardust.util.Vector;
+import kjarkko.stardust.util.Coordinate;
 import java.awt.Color;
 import org.junit.After;
 import org.junit.AfterClass;

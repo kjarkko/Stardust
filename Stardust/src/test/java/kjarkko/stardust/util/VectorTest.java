@@ -1,6 +1,7 @@
 
-package kjarkko.stardust.logic;
+package kjarkko.stardust.util;
 
+import kjarkko.stardust.util.Vector;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
