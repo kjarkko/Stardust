@@ -16,6 +16,7 @@ public class FileReaderTest {
 
     @BeforeClass
     public static void setUpClass() {
+        reset();
     }
 
     @AfterClass
@@ -30,9 +31,38 @@ public class FileReaderTest {
     public void tearDown() {
     }
 
-    @Test
-    public void testParseLine() {
+    private boolean settingsUnchanged() {
+        return Settings.getScreenRefreshRateMS() == 17
+                && Settings.getPlanetUpdateRateMS() == 5
+                && Settings.getSimulationSpeedMultiplier() == 1;
+    }
 
+    @Test
+    public void testParseLine1() { // empty line
+        parseLine("");
+        assertTrue(settingsUnchanged());
+        assertTrue(getCreatedPlanets().isEmpty());
+    }
+
+    @Test
+    public void testParseLine2() { // comment
+        parseLine("#aölweghioöahne");
+        assertTrue(settingsUnchanged());
+        assertTrue(getCreatedPlanets().isEmpty());
+    }
+
+    @Test
+    public void testParseLine3() { // planet 1
+        parseLine("p");
+        assertTrue(settingsUnchanged());
+        assertTrue(getCreatedPlanets().isEmpty());
+    }
+
+    @Test
+    public void testParseLine4() { // planet 2
+        parseLine("p ; 1 ; 1 ; 1-1 ; 1-1 ; 0xffffff ; asd;;");
+        assertTrue(settingsUnchanged());
+        assertTrue(!getCreatedPlanets().isEmpty());
     }
 
     @Test

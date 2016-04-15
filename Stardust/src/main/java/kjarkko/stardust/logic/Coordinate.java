@@ -13,15 +13,17 @@ public class Coordinate {
     }
 
     public double distance(Coordinate that) {
-        return sqrt(pow(this.x - that.x, 2) + pow(this.y - that.y, 2));
+        return sqrt(
+                pow(xDistance(that), 2)
+                + pow(yDistance(that), 2));
     }
 
     public double xDistance(Coordinate that) {
-        return this.x - that.x;
+        return abs(this.x - that.x);
     }
 
     public double yDistance(Coordinate that) {
-        return this.y - that.y;
+        return abs(this.y - that.y);
     }
 
     public double getX() {

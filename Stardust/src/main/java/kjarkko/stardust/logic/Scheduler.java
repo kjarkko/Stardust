@@ -29,7 +29,7 @@ public class Scheduler {
     }
 
     public static boolean updateFreqHasChanged() {
-        return taskFreq != Settings.getPlanetUpdateFrequencyMS();
+        return taskFreq != Settings.getPlanetUpdateRateMS();
     }
 
     public static void start() {
@@ -52,7 +52,7 @@ public class Scheduler {
     }
 
     private static void newTask() {
-        taskFreq = Settings.getPlanetUpdateFrequencyMS();
+        taskFreq = Settings.getPlanetUpdateRateMS();
         TIMER.scheduleAtFixedRate(TASK, 0, taskFreq);
     }
 }

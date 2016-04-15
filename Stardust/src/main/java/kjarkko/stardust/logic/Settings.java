@@ -7,16 +7,20 @@ public class Settings {
     private static int simulationSpeedMultiplier;
 
     static {
+        setDefault();
+    }
+
+    public static void setDefault() {
         screenRefreshRateMS = 17; // Approximately 60Hz
         planetUpdateRateMS = 5;
         simulationSpeedMultiplier = 1;
     }
 
-    public static int getRefreshRateMS() {
+    public static int getScreenRefreshRateMS() {
         return screenRefreshRateMS;
     }
 
-    public static int getPlanetUpdateFrequencyMS() {
+    public static int getPlanetUpdateRateMS() {
         return planetUpdateRateMS;
     }
 
@@ -24,19 +28,25 @@ public class Settings {
         return simulationSpeedMultiplier;
     }
 
-    public static void setRefreshRateMS(int refreshRateMS) {
-        Settings.screenRefreshRateMS = refreshRateMS;
+    public static void setScreenRefreshRateMS(int screenRefreshRateMS) {
+        if (screenRefreshRateMS > 0) {
+            Settings.screenRefreshRateMS = screenRefreshRateMS;
+        }
     }
 
-    public static void setPlanetUpdateFrequencyMS(int planetUpdateRateMS) {
-        Settings.planetUpdateRateMS = planetUpdateRateMS;
+    public static void setPlanetUpdateRateMS(int planetUpdateRateMS) {
+        if (planetUpdateRateMS > 0) {
+            Settings.planetUpdateRateMS = planetUpdateRateMS;
+        }
     }
 
     public static void setSimulationSpeedMultiplier(int simulationSpeedMultiplier) {
-        Settings.simulationSpeedMultiplier = simulationSpeedMultiplier;
+        if (simulationSpeedMultiplier > 0) {
+            Settings.simulationSpeedMultiplier = simulationSpeedMultiplier;
+        }
     }
 
-    public static int getElapsedTime() {
-        return simulationSpeedMultiplier / planetUpdateRateMS;
+    public static int getElapsedTimeMS() {
+        return (simulationSpeedMultiplier * 1000) / planetUpdateRateMS;
     }
 }

@@ -6,3 +6,4 @@ Date | Time | Description
 25.03.2016 | 4h | Code and some tests
 01.04.2016 | 2h | Refactoring code, fixing broken tests
 08.04.2016 | 4h | Scheduler, minor changes elsewhere
+15.04.2016 | 3h | Creating tests, some tweaks to logic

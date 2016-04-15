@@ -40,19 +40,20 @@ public class Planets {
         planets.removeIf((p) -> p.id == id);
     }
 
+    // Planet.gravitatianalForce not yet implemented
     public void update() {
-        calculateForces();
-        updateLocations(Settings.getElapsedTime());
+//        calculateForces();
+//        updateLocations(Settings.getElapsedTime());
     }
 
     public void calculateForces() {
-        for (int i = 0; i < planets.size(); i++) {
-            for (int j = i + 1; j < planets.size(); j++) {
-                Vector f = planets.get(i).gravitationalForce(planets.get(j));
-                planets.get(i).getTempForce().addVector(f);
-                planets.get(j).getTempForce().addVector(f.createNegative());
-            }
-        }
+//        for (int i = 0; i < planets.size(); i++) {
+//            for (int j = i + 1; j < planets.size(); j++) {
+//                Vector f = planets.get(i).gravitationalForce(planets.get(j));
+//                planets.get(i).getTempForce().addVector(f);
+//                planets.get(j).getTempForce().addVector(f.createNegative());
+//            }
+//        }
     }
 
     public void updateLocations(int elapsedTime) {

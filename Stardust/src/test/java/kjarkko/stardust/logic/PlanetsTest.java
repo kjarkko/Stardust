@@ -29,27 +29,54 @@ public class PlanetsTest {
     @After
     public void tearDown() {
     }
-    
-    /**
-     * PIT doesn't like this test for whatever reason 
-     * and I'm too lazy to fix it right now
-     */
-//    @Test
-//    public void testAddAndRemove() {
-//        Planets.clear();
-//        Planets.get().add(new Planet(
-//                new Coordinate(0, 0),
-//                new Vector(0, 0),
-//                1,
-//                Color.PINK,
-//                "asdf",
-//                1
-//        ));
-//        Planets.get().add(null);
-//        assertEquals(1, Planets.get().getSize());
-//        Planets.get().remove(0);
-//        assertEquals(0, Planets.get().getSize());
-//    }
+
+    @Test
+    public void testAdd() {
+        Planets.clear();
+        Planets.get().add(new Planet(
+                new Coordinate(0, 0),
+                new Vector(0, 0),
+                1,
+                Color.PINK,
+                "asdf",
+                1
+        ));
+        Planets.get().add(new Planet(
+                new Coordinate(0, 0),
+                new Vector(0, 0),
+                1,
+                Color.PINK,
+                "asdf",
+                1
+        ));
+        Planets.get().add(null);
+        assertEquals(2, Planets.get().size());
+    }
+
+    @Test
+    public void testRemove() {
+        Planets.clear();
+        Planet p = new Planet(
+                new Coordinate(0, 0),
+                new Vector(0, 0),
+                1,
+                Color.PINK,
+                "asdf",
+                1
+        );
+        Planets.get().add(p);
+        Planets.get().add(new Planet(
+                new Coordinate(0, 0),
+                new Vector(0, 0),
+                1,
+                Color.PINK,
+                "asdf",
+                1
+        ));
+        Planets.get().remove(p.id);
+        Planets.get().remove(-1);
+        assertEquals(1, Planets.get().size());
+    }
 
     @Test
     public void testAddAll() {
