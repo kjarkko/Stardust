@@ -41,6 +41,7 @@ public class FileReaderTest {
 
     @Test
     public void testParseLine1() { // empty line
+        Settings.setDefault();
         parseLine("");
         assertTrue(settingsUnchanged());
         assertTrue(getCreatedPlanets().isEmpty());
@@ -48,6 +49,7 @@ public class FileReaderTest {
 
     @Test
     public void testParseLine2() { // comment
+        Settings.setDefault();
         parseLine("#aölweghioöahne");
         assertTrue(settingsUnchanged());
         assertTrue(getCreatedPlanets().isEmpty());
@@ -55,6 +57,7 @@ public class FileReaderTest {
 
     @Test
     public void testParseLine3() { // planet 1
+        Settings.setDefault();
         parseLine("p");
         assertTrue(settingsUnchanged());
         assertTrue(getCreatedPlanets().isEmpty());
@@ -62,6 +65,7 @@ public class FileReaderTest {
 
     @Test
     public void testParseLine4() { // planet 2
+        Settings.setDefault();
         parseLine("p ; 1 ; 1 ; 1-1 ; 1-1 ; 0xffffff ; asd;;");
         assertTrue(settingsUnchanged());
         assertTrue(!getCreatedPlanets().isEmpty());

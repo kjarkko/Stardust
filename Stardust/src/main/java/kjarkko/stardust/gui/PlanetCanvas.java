@@ -5,6 +5,16 @@
  */
 package kjarkko.stardust.gui;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.Timer;
+import java.util.TimerTask;
+import javax.swing.JFrame;
+import kjarkko.stardust.logic.Planet;
+import kjarkko.stardust.logic.Planets;
+import kjarkko.stardust.logic.Settings;
+import kjarkko.stardust.util.Coordinate;
+
 /**
  *
  * @author jarkko
@@ -15,7 +25,52 @@ public class PlanetCanvas extends javax.swing.JPanel {
      * Creates new form PlanetCanvas
      */
     public PlanetCanvas() {
+        super.setBackground(Color.BLACK);
         initComponents();
+        PlanetCanvas c = this;
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                JFrame jf = new JFrame();
+                jf.setSize(700, 700);
+                jf.add(c);
+                jf.setVisible(true);
+            }
+        });
+    }
+
+    public void refresh() {
+        super.repaint();
+        try{
+            Thread.sleep(10); // doesn't work without this for whatever reason
+        }catch(Exception e){} 
+        Planets.get().update();
+        //Planets.get().drawAll(super.getGraphics());
+//        
+//        Planets.get()
+//                .getPlanetIterator()
+//                .forEachRemaining(
+//                        p -> drawPlanet(p));
+//        
+        Planets.get().getPlanetIterator().forEachRemaining(p -> drawPlanet(p));
+        new Timer()
+            .schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    refresh();
+                }
+        }, Settings.getScreenRefreshRateMS());
+    }
+
+    private void drawPlanet(Planet p) {
+        Graphics g = super.getGraphics();
+        g.setColor(p.getColor());
+        
+        int radius = p.radius;
+        Coordinate loc = p.getLocation();
+        int x = 350 - (radius >> 1) + (int)(loc.getX()/Settings.getDistancePerPixel());
+        int y = 350 - (radius >> 1) + (int)(loc.getY()/Settings.getDistancePerPixel());
+        
+        g.fillOval(x, y, radius, radius);
     }
 
     /**
@@ -27,15 +82,18 @@ public class PlanetCanvas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        setMaximumSize(new java.awt.Dimension(700, 700));
+        setMinimumSize(new java.awt.Dimension(700, 700));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

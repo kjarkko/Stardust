@@ -59,7 +59,7 @@ public class FileReader {
     }
 
     public static Planet createPlanet(String line) {
-        double radius;
+        int radius;
         double mass;
         Coordinate location;
         Vector movement;
@@ -71,7 +71,7 @@ public class FileReader {
             values[i] = values[i].trim();
         }
         try {
-            radius = Double.parseDouble(values[1]);
+            radius = Integer.parseInt(values[1]);
             mass = Double.parseDouble(values[2]);
 
             String[] loc = values[3].split("-");

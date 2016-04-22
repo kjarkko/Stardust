@@ -10,26 +10,13 @@ import java.util.TimerTask;
  */
 public class Scheduler {
 
-    private static final TimerTask TASK;
-    private static final Timer TIMER;
+    private static TimerTask task;
+    private static Timer timer;
     private static boolean isRunning;
     private static int taskFreq;
 
     static {
-        TASK = new TimerTask() {
-            @Override
-            public void run() {
-                if (updateFreqHasChanged()) {
-                    TASK.cancel();
-                    newTask();
-                    return;
-                }
-
-                Planets.get().update();
-            }
-        };
-
-        TIMER = new Timer();
+        taskFreq = Settings.getPlanetUpdateRateMS();
         isRunning = false;
     }
 
@@ -45,8 +32,8 @@ public class Scheduler {
             return;
         }
 
-        newTask();
         isRunning = true;
+        newTask();
     }
 
     /**
@@ -58,13 +45,15 @@ public class Scheduler {
         }
 
         isRunning = false;
-        TIMER.cancel();
-
+        timer.cancel();
+        task.cancel();
     }
 
-    private static void newTask() {
+    private static void newTask() {        
         taskFreq = Settings.getPlanetUpdateRateMS();
-        TIMER.scheduleAtFixedRate(TASK, 0, taskFreq);
+        task = generateTask();
+        timer = new Timer();
+        timer.scheduleAtFixedRate(task, 0, taskFreq);
     }
 
     /**
@@ -73,5 +62,20 @@ public class Scheduler {
      */
     public static boolean isRunning() {
         return isRunning;
+    }
+    
+    private static TimerTask generateTask(){
+        return new TimerTask() {
+            @Override
+            public void run() {
+                if (updateFreqHasChanged()) {
+                    stop();
+                    newTask();
+                    return;
+                }
+
+                Planets.get().update();
+            }
+        };
     }
 }

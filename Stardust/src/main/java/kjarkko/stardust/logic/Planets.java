@@ -1,7 +1,10 @@
 package kjarkko.stardust.logic;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
+import kjarkko.stardust.util.Vector;
 
 /**
  * an object designed to hold instances of planets and some functionality
@@ -43,6 +46,10 @@ public class Planets {
     private Planets() {
         planets = new ArrayList();
     }
+    
+    public void drawAll(Graphics g){
+        planets.forEach(p -> p.draw(g));
+    }
 
     /**
      * Adds the planet to the collection of planets held inside of this object,
@@ -79,14 +86,14 @@ public class Planets {
     // Planet.gravitatianalForce not fully implemented yet, these will not work
     /**
      * calculates the force between all of the planets and updates their
-     * location
+     * location 
      *
      * @see kjarkko.stardust.logic.Planets#calculateForces()
      * @see kjarkko.stardust.logic.Planets#updateLocations(int)
      */
     public void update() {
-//        calculateForces();
-//        updateLocations(Settings.getElapsedTime());
+        calculateForces();
+        updateLocations(Settings.getElapsedTime());
     }
 
     /**
@@ -96,13 +103,13 @@ public class Planets {
      * @see kjarkko.stardust.logic.Planet#tempForce
      */
     public void calculateForces() {
-//        for (int i = 0; i < planets.size(); i++) {
-//            for (int j = i + 1; j < planets.size(); j++) {
-//                Vector f = planets.get(i).gravitationalForce(planets.get(j));
-//                planets.get(i).getTempForce().addVector(f);
-//                planets.get(j).getTempForce().addVector(f.createNegative());
-//            }
-//        }
+        for (int i = 0; i < planets.size(); i++) {
+            for (int j = i + 1; j < planets.size(); j++) {
+                Vector f = planets.get(i).gravitationalForce(planets.get(j));
+                planets.get(i).getTempForce().addVector(f);
+                planets.get(j).getTempForce().addVector(f.createNegative());
+            }
+        }
     }
 
     /**
@@ -119,5 +126,9 @@ public class Planets {
      */
     public int size() {
         return planets.size();
+    }
+    
+    public Iterator<Planet> getPlanetIterator(){
+        return planets.iterator();
     }
 }

@@ -5,6 +5,9 @@
  */
 package kjarkko.stardust.gui;
 
+import static kjarkko.stardust.Main.canv;
+import kjarkko.stardust.util.FileReader;
+
 /**
  *
  * @author jarkko
@@ -32,9 +35,9 @@ public class StartWindow extends javax.swing.JFrame {
         fileLocationField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(2147483647, 50));
-        setMinimumSize(new java.awt.Dimension(0, 50));
-        setPreferredSize(new java.awt.Dimension(450, 50));
+        setMaximumSize(new java.awt.Dimension(2147483647, 100));
+        setMinimumSize(new java.awt.Dimension(300, 100));
+        setPreferredSize(new java.awt.Dimension(450, 100));
 
         continueButton.setText("Load preset file (empty to skip)");
         continueButton.addActionListener(new java.awt.event.ActionListener() {
@@ -70,15 +73,15 @@ public class StartWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
         String input = fileLocationField.getText();
         if (!input.trim().isEmpty()) {
-            // call fileReader with the input
+            FileReader.parseFile(input);
         }
-        throw new UnsupportedOperationException();
+        this.setEnabled(false);
+        this.setVisible(false);
+        ControlPanel.start();
+        canv.refresh();
     }//GEN-LAST:event_continueButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+    public static void start() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

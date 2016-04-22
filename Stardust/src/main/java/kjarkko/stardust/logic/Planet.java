@@ -3,6 +3,7 @@ package kjarkko.stardust.logic;
 import kjarkko.stardust.util.Vector;
 import kjarkko.stardust.util.Coordinate;
 import java.awt.Color;
+import java.awt.Graphics;
 import static java.lang.Math.*;
 
 /**
@@ -32,7 +33,7 @@ public class Planet {
 
     /*--------------------------------------------*/
     public final int id;
-    public final double radius;
+    public final int radius;
     public final double mass;
     private final Coordinate location;
     private final Vector velocity;
@@ -47,7 +48,7 @@ public class Planet {
     private final String name;
 
     public Planet(Coordinate location, Vector movement, double mass,
-            Color color, String name, double radius) {
+            Color color, String name, int radius) {
         this.id = createId();
         this.location = location;
         this.velocity = movement;
@@ -99,12 +100,22 @@ public class Planet {
     public Vector gravitationalForce(Planet p) {
         double force = 6.67259E-11
                 * ((mass * p.mass) / pow(location.distance(p.location), 2));
+        
+        double alpha = Math.atan(location.yDistance(p.location) / location.xDistance(p.location));
 
-        double forceX;
-        double forceY;
+        double forceX = force * cos(alpha);
+        double forceY = force * sin(alpha);
 
-        // return new Vector(forceX, forceY);
-        throw new UnsupportedOperationException();
+        return new Vector(forceX, forceY);
+    }
+    
+    public void draw(Graphics g){
+        g.setColor(color);
+        
+        int x = 350 - (radius >> 1) + (int)(location.getX()/Settings.getDistancePerPixel());
+        int y = 350 - (radius >> 1) + (int)(location.getY()/Settings.getDistancePerPixel());
+        
+        g.fillOval(x, y, radius, radius);
     }
 
     public Color getColor() {

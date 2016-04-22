@@ -21,13 +21,15 @@ public class Settings {
      * 86400 = 1 day per second
      */
     private static int simulationSpeedMultiplier;
+    private static double distancePerPixel;
 
     static {
         setDefault();
+        distancePerPixel = 1200000; // earth/moon
     }
 
     public static void setDefault() {
-        screenRefreshRateMS = 17; // Approximately 60Hz
+        screenRefreshRateMS = 17; 
         planetUpdateRateMS = 5;
         simulationSpeedMultiplier = 1;
     }
@@ -42,6 +44,10 @@ public class Settings {
 
     public static int getSimulationSpeedMultiplier() {
         return simulationSpeedMultiplier;
+    }
+
+    public static double getDistancePerPixel() {
+        return distancePerPixel;
     }
 
     public static void setScreenRefreshRateMS(int screenRefreshRateMS) {
@@ -60,6 +66,10 @@ public class Settings {
         if (simulationSpeedMultiplier > 0) {
             Settings.simulationSpeedMultiplier = simulationSpeedMultiplier;
         }
+    }
+
+    public static void setDistancePerPixel(double distancePerPixel) {
+        Settings.distancePerPixel = distancePerPixel;
     }
 
     /**
