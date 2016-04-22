@@ -67,7 +67,7 @@
 <a class="jxr_linenumber" name="L59" href="#L59">59</a>      }
 <a class="jxr_linenumber" name="L60" href="#L60">60</a>  
 <a class="jxr_linenumber" name="L61" href="#L61">61</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../kjarkko/stardust/logic/Planet.html">Planet</a> createPlanet(String line) {
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>          <strong class="jxr_keyword">double</strong> radius;
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          <strong class="jxr_keyword">int</strong> radius;
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>          <strong class="jxr_keyword">double</strong> mass;
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>          <a href="../../../kjarkko/stardust/util/Coordinate.html">Coordinate</a> location;
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>          <a href="../../../kjarkko/stardust/util/Vector.html">Vector</a> movement;
@@ -79,7 +79,7 @@
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>              values[i] = values[i].trim();
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>          }
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>          <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>              radius = Double.parseDouble(values[1]);
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>              radius = Integer.parseInt(values[1]);
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>              mass = Double.parseDouble(values[2]);
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>              String[] loc = values[3].split(<span class="jxr_string">"-"</span>);

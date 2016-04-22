@@ -24,21 +24,41 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="planetName" alignment="0" max="32767" attributes="0"/>
                       <Component id="planetColor" alignment="0" max="32767" attributes="0"/>
                       <Component id="planetRadius" alignment="0" pref="249" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="planetMass" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
-                  <Component id="planetXLoc" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
-                  <Component id="planetYloc" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
-                  <Component id="planetXvel" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
-                  <Component id="planetYvel" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="planetMass" min="-2" pref="249" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="planetMassMagnitude" min="-2" pref="249" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="planetYvel" min="-2" pref="249" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="planetYvelMagn" min="-2" pref="249" max="-2" attributes="0"/>
+                  </Group>
                   <Component id="createPlanetButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="planetYloc" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
+                          <Component id="planetXvel" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="planetYlocMagn" min="-2" pref="249" max="-2" attributes="0"/>
+                          <Component id="planetXvelMagn" min="-2" pref="249" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="planetXLoc" min="-2" pref="249" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="planetXlocMagn" min="-2" pref="249" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="534" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,15 +72,30 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="planetRadius" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="planetMass" min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="planetMass" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="planetMassMagnitude" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="planetXLoc" min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="planetXLoc" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="planetXlocMagn" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="planetYloc" min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="planetYloc" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="planetYlocMagn" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="planetXvel" min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="planetXvel" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="planetXvelMagn" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="planetYvel" min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="planetYvel" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="planetYvelMagn" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="createPlanetButton" min="-2" max="-2" attributes="0"/>
           </Group>
@@ -156,6 +191,61 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createPlanetButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="planetXlocMagn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Magnitude"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[100, 30]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="planetXlocMagnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="planetMassMagnitude">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Magnitude"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[100, 30]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="planetMassMagnitudeActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="planetYlocMagn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Magnitude"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[100, 30]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="planetYlocMagnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="planetYvelMagn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Magnitude"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[100, 30]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="planetYvelMagnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="planetXvelMagn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Magnitude"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[100, 30]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="planetXvelMagnActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

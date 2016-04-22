@@ -46,10 +46,10 @@ public class Planets {
     private Planets() {
         planets = new ArrayList();
     }
-    
-    public void drawAll(Graphics g){
-        planets.forEach(p -> p.draw(g));
-    }
+//    
+//    public void drawAll(Graphics g){
+//        planets.forEach(p -> p.draw(g));
+//    }
 
     /**
      * Adds the planet to the collection of planets held inside of this object,
@@ -86,7 +86,7 @@ public class Planets {
     // Planet.gravitatianalForce not fully implemented yet, these will not work
     /**
      * calculates the force between all of the planets and updates their
-     * location 
+     * location
      *
      * @see kjarkko.stardust.logic.Planets#calculateForces()
      * @see kjarkko.stardust.logic.Planets#updateLocations(int)
@@ -127,8 +127,8 @@ public class Planets {
     public int size() {
         return planets.size();
     }
-    
-    public Iterator<Planet> getPlanetIterator(){
+
+    public Iterator<Planet> getPlanetIterator() {
         return planets.iterator();
     }
 }

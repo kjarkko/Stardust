@@ -4,4 +4,4 @@
 #### Functionality
   Basic functionality will include adding and removing planets, changing simulation speed, zooming in and out and moving the camera around.
 
-![Class diagram](class_diagram.png)
+![Class diagram](class_diagram3.png)

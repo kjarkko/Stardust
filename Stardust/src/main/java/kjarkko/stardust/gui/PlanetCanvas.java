@@ -39,10 +39,18 @@ public class PlanetCanvas extends javax.swing.JPanel {
     }
 
     public void refresh() {
+        new Timer()
+            .schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    refresh();
+                }
+        }, Settings.getScreenRefreshRateMS());
         super.repaint();
-        try{
-            Thread.sleep(10); // doesn't work without this for whatever reason
-        }catch(Exception e){} 
+        //super.update(null);
+//        try{
+//            Thread.sleep(100); // doesn't work without this for whatever reason
+//        }catch(Exception e){} 
         Planets.get().update();
         //Planets.get().drawAll(super.getGraphics());
 //        
@@ -52,13 +60,6 @@ public class PlanetCanvas extends javax.swing.JPanel {
 //                        p -> drawPlanet(p));
 //        
         Planets.get().getPlanetIterator().forEachRemaining(p -> drawPlanet(p));
-        new Timer()
-            .schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    refresh();
-                }
-        }, Settings.getScreenRefreshRateMS());
     }
 
     private void drawPlanet(Planet p) {

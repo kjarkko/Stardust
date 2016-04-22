@@ -49,7 +49,7 @@ public class Scheduler {
         task.cancel();
     }
 
-    private static void newTask() {        
+    private static void newTask() {
         taskFreq = Settings.getPlanetUpdateRateMS();
         task = generateTask();
         timer = new Timer();
@@ -63,8 +63,8 @@ public class Scheduler {
     public static boolean isRunning() {
         return isRunning;
     }
-    
-    private static TimerTask generateTask(){
+
+    private static TimerTask generateTask() {
         return new TimerTask() {
             @Override
             public void run() {

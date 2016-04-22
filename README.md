@@ -7,4 +7,4 @@
 
 [Checkstyle](https://htmlpreview.github.io/?https://raw.githubusercontent.com/kjarkko/Stardust/master/documentation/checkstyle/site/checkstyle.html)
 
-[PIT](https://htmlpreview.github.io/?https://raw.githubusercontent.com/kjarkko/Stardust/master/documentation/pit/201604152300/index.html)
+[PIT](https://htmlpreview.github.io/?https://raw.githubusercontent.com/kjarkko/Stardust/master/documentation/pit/201604222212/index.html)

@@ -109,14 +109,14 @@ public class Planet {
         return new Vector(forceX, forceY);
     }
     
-    public void draw(Graphics g){
-        g.setColor(color);
-        
-        int x = 350 - (radius >> 1) + (int)(location.getX()/Settings.getDistancePerPixel());
-        int y = 350 - (radius >> 1) + (int)(location.getY()/Settings.getDistancePerPixel());
-        
-        g.fillOval(x, y, radius, radius);
-    }
+//    public void draw(Graphics g){
+//        g.setColor(color);
+//        
+//        int x = 350 - (radius >> 1) + (int)(location.getX()/Settings.getDistancePerPixel());
+//        int y = 350 - (radius >> 1) + (int)(location.getY()/Settings.getDistancePerPixel());
+//        
+//        g.fillOval(x, y, radius, radius);
+//    }
 
     public Color getColor() {
         return color;
