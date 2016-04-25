@@ -116,7 +116,7 @@ public class Planets {
      *
      * @param elapsedTime the time elapsed in the simulation since the last tick
      */
-    public void updateLocations(int elapsedTime) {
+    public void updateLocations(double elapsedTime) {
         planets.forEach(p -> p.updateLocation(elapsedTime));
     }
 

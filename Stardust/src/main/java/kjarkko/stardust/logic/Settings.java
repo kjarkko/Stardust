@@ -77,7 +77,8 @@ public class Settings {
      * @return the time elapsed (inside the simulation) in seconds since the
      * last update
      */
-    public static int getElapsedTime() {
-        return (simulationSpeedMultiplier * 1000) / planetUpdateRateMS;
+    public static double getElapsedTime() {
+        return simulationSpeedMultiplier / planetUpdateRateMS;
+//        return (simulationSpeedMultiplier * 1000) / planetUpdateRateMS;
     }
 }

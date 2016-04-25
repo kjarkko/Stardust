@@ -67,7 +67,7 @@ public class Planet {
      * @param elapsedTime The time elapsed in seconds since the last tick in the
      * simulation
      */
-    public void updateLocation(int elapsedTime) {
+    public void updateLocation(double elapsedTime) {
         velocity.addVector(deltaVelocity(elapsedTime));
         location.addX(velocity.getX() * elapsedTime);
         location.addY(velocity.getY() * elapsedTime);
@@ -81,7 +81,7 @@ public class Planet {
      * in seconds in the simulation
      * @return delta velocity, current velocity is completely ignored
      */
-    public Vector deltaVelocity(int elapsedTime) {
+    public Vector deltaVelocity(double elapsedTime) {
         Vector delta = new Vector(
                 (tempForce.getX() * elapsedTime) / mass,
                 (tempForce.getY() * elapsedTime) / mass
@@ -104,7 +104,13 @@ public class Planet {
         double alpha = Math.atan(location.yDistance(p.location) / location.xDistance(p.location));
 
         double forceX = force * cos(alpha);
+        if(p.location.getX() < location.getX()){
+            forceX = -forceX;
+        }
         double forceY = force * sin(alpha);
+        if(p.location.getY() < location.getY()){
+            forceY = -forceY;
+        }
 
         return new Vector(forceX, forceY);
     }

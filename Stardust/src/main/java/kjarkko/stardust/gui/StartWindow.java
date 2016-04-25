@@ -6,6 +6,7 @@
 package kjarkko.stardust.gui;
 
 import static kjarkko.stardust.Main.canv;
+import kjarkko.stardust.logic.Planets;
 import kjarkko.stardust.util.FileReader;
 
 /**
@@ -74,6 +75,7 @@ public class StartWindow extends javax.swing.JFrame {
         String input = fileLocationField.getText();
         if (!input.trim().isEmpty()) {
             FileReader.parseFile(input);
+            Planets.get().addAll(FileReader.getCreatedPlanets());
         }
         this.setEnabled(false);
         this.setVisible(false);

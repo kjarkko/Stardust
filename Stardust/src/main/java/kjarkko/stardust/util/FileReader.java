@@ -36,7 +36,7 @@ public class FileReader {
     }
 
     public static void parseLine(String line) {
-        // Example of a planet: p;radius;mass;locX-locY;vecX-vecY;color;name;
+        // Example of a planet: p;radius;mass;locX|locY;vecX|vecY;color;name;
         if (line.length() < 1) {
             return;
         }
@@ -74,12 +74,12 @@ public class FileReader {
             radius = Integer.parseInt(values[1]);
             mass = Double.parseDouble(values[2]);
 
-            String[] loc = values[3].split("-");
+            String[] loc = values[3].split(",");
             double x = Double.parseDouble(loc[0]);
             double y = Double.parseDouble(loc[1]);
             location = new Coordinate(x, y);
 
-            String[] mv = values[4].split("-");
+            String[] mv = values[4].split(",");
             x = Double.parseDouble(mv[0]);
             y = Double.parseDouble(mv[1]);
             movement = new Vector(x, y);
