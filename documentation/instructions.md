@@ -16,7 +16,7 @@ Where:
 - c = x,y location (double)
 - d = x,y vector (double), in m/s
 - e = color, integer (example: 16000 is blue(ish))
- -f = name of the planet(string)
+- f = name of the planet(string)
 
 example:
 p;50;73240000000000000000000;384399000,0;0,1022;16000;moon;
