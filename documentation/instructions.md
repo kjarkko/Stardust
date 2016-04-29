@@ -11,12 +11,12 @@ File 'test' in the root of the project generates the earth and the moon.
 
 * Format of the file should be like this: p; a ; b ; c1,c2 ; d1,d2 ; e ; f;
 Where:
-a = radius(integer)
-b = mass(double), in kilograms
-c = x,y location (double)
-d = x,y vector (double), in m/s
-e = color, integer (example: 16000 is blue(ish))
-f = name of the planet(string)
+- a = radius(integer)
+- b = mass(double), in kilograms
+- c = x,y location (double)
+- d = x,y vector (double), in m/s
+- e = color, integer (example: 16000 is blue(ish))
+ -f = name of the planet(string)
 
 example:
 p;50;73240000000000000000000;384399000,0;0,1022;16000;moon;
