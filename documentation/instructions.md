@@ -5,6 +5,7 @@
 - Press speed up/down to make the simulation go faster/slower (number displayed below is the current speed)
 
 Currently the program does not have a zoom function and the default zoom is meant for the earth and the moon
+Coordinate 0,0 is located in the center of the screen
 
 File 'test' in the root of the project generates the earth and the moon.
 
