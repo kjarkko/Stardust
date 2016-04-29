@@ -3,6 +3,7 @@
 
 ### Documentation
 - [Subject description](documentation/Subject_description.md)
+- [Instructions](documentation/instructions.md)
 - [Time usage](documentation/time.md)
 
 [Checkstyle](https://htmlpreview.github.io/?https://raw.githubusercontent.com/kjarkko/Stardust/master/documentation/checkstyle/site/checkstyle.html)
