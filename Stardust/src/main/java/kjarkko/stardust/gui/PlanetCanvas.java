@@ -7,32 +7,31 @@ package kjarkko.stardust.gui;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import kjarkko.stardust.logic.Planet;
 import kjarkko.stardust.logic.Planets;
-import kjarkko.stardust.logic.Scheduler;
 import kjarkko.stardust.logic.Settings;
 import kjarkko.stardust.util.Coordinate;
 
 /**
+ * Window used for drawing planets.
  *
  * @author jarkko
  */
 public class PlanetCanvas extends javax.swing.JPanel {
 
+    private final Timer TIMER;
+
     /**
      * Creates new form PlanetCanvas
      */
     public PlanetCanvas() {
+        super(true);
         super.setBackground(Color.BLACK);
         initComponents();
         PlanetCanvas c = this;
-        setDoubleBuffered(true);
-        autoRepaint();
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -42,57 +41,25 @@ public class PlanetCanvas extends javax.swing.JPanel {
                 jf.setVisible(true);
             }
         });
-    }
 
-    public void refresh() {
-        new Timer()
-                .schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        refresh();
-                    }
-                }, Settings.getScreenRefreshRateMS());
-//        paintComponents(super.getGraphics());
-//        super.repaint();
-        Planets.get()
-                .getPlanetIterator()
-                .forEachRemaining(
-                        p -> drawPlanet(p, super.getGraphics()));
-//        
-//        BufferedImage bi = new BufferedImage(700,700, BufferedImage.TYPE_INT_ARGB);
-//        bi.createGraphics();
-//        
-////        
-////        super.getGraphics();
-    }
-
-    @Override
-    public void paintComponents(Graphics g) {
-        super.paintComponents(g);
-//        super.repaint();
-        Planets.get()
-                .getPlanetIterator()
-                .forEachRemaining(
-                        p -> drawPlanet(p, g));
+        TIMER = new Timer();
+        refresh();
     }
 
     /**
-     * "fix" for the lack of double buffering
-     * (doesn't actually work)
+     * Repaints the window.
      */
-    public void autoRepaint() {
-        new Timer()
-                .schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        autoRepaint();
-                    }
-                },500);
-        super.repaint();
+    public void refresh() {
+        TIMER.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                refresh();
+            }
+        }, Settings.getScreenRefreshRateMS());
+        repaint();
     }
 
     private void drawPlanet(Planet p, Graphics g) {
-
         g.setColor(p.getColor());
         int radius = p.radius;
         Coordinate loc = p.getLocation();
@@ -100,6 +67,27 @@ public class PlanetCanvas extends javax.swing.JPanel {
         int y = 350 - (radius >> 1) + (int) (loc.getY() / Settings.getDistancePerPixel());
 
         g.fillOval(x, y, radius, radius);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Planets.get()
+                .getPlanetIterator()
+                .forEachRemaining(
+                        p -> drawPlanet(p, g));
+    }
+
+    /**
+     * Starts the window.
+     */
+    public static void start() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new PlanetCanvas().setVisible(true);
+            }
+        });
     }
 
     /**

@@ -9,3 +9,5 @@ Date | Time | Description
 15.04.2016 | 3h | Creating tests, some tweaks to logic
 15.04.2016 | 2h | Javadoc, attempted to create a GUI
 22.04.2016 | 6h | GUI
+28.04.2016 | 5h | *GUI is no longer shit* (sort of)
+29.04.2016 | 2h | Documentation

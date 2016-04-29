@@ -3,7 +3,7 @@ package kjarkko.stardust.util;
 import static java.lang.Math.*;
 
 /**
- * a simple (double, double) coordinate
+ * A simple (double, double) coordinate.
  *
  * @author jarkko
  */
@@ -12,16 +12,22 @@ public class Coordinate {
     private double x;
     private double y;
 
+    /**
+     * New coordinate.
+     *
+     * @param x location
+     * @param y location
+     */
     public Coordinate(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
     /**
-     * calculates the distance between the two coordinates in metres
+     * Calculates the distance between the two coordinates in meters.
      *
      * @param that the other coordinate
-     * @return the distance between the two in metres
+     * @return the distance between the two in meters
      */
     public double distance(Coordinate that) {
         return sqrt(
@@ -30,6 +36,7 @@ public class Coordinate {
     }
 
     /**
+     * The distance between the two coordinates (x).
      *
      * @param that the other coordinate
      * @return distance between the x coordinates
@@ -39,6 +46,7 @@ public class Coordinate {
     }
 
     /**
+     * The distance between the two coordinates (y).
      *
      * @param that the other coordinate
      * @return distance between the y coordinates
@@ -64,6 +72,7 @@ public class Coordinate {
     }
 
     /**
+     * Adds the value to the x coordinate.
      *
      * @param x the value to be added to the x coordinate
      */
@@ -72,6 +81,7 @@ public class Coordinate {
     }
 
     /**
+     * Adds the value to the y coordinate.
      *
      * @param y the value to be added to the y coordinate
      */

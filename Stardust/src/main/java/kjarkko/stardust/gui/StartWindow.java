@@ -5,8 +5,8 @@
  */
 package kjarkko.stardust.gui;
 
-import static kjarkko.stardust.Main.canv;
 import kjarkko.stardust.logic.Planets;
+import kjarkko.stardust.logic.Scheduler;
 import kjarkko.stardust.util.FileReader;
 
 /**
@@ -79,10 +79,15 @@ public class StartWindow extends javax.swing.JFrame {
         }
         this.setEnabled(false);
         this.setVisible(false);
+
         ControlPanel.start();
-        canv.refresh();
+        PlanetCanvas.start();
+        Scheduler.start();
     }//GEN-LAST:event_continueButtonActionPerformed
 
+    /**
+     * Starts the window.
+     */
     public static void start() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

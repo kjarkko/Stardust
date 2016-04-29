@@ -66,7 +66,7 @@ public class FileReaderTest {
     @Test
     public void testParseLine4() { // planet 2
         Settings.setDefault();
-        parseLine("p ; 1 ; 1 ; 1-1 ; 1-1 ; 0xffffff ; asd;;");
+        parseLine("p ; 1 ; 1 ; 1,1 ; 1,1 ; 0xffffff ; asd;;");
         assertTrue(settingsUnchanged());
         assertTrue(!getCreatedPlanets().isEmpty());
     }
@@ -74,13 +74,13 @@ public class FileReaderTest {
     @Test
     public void testCreatePlanetCorrectInputNotNull() {
         assertNotEquals(null, createPlanet(
-                "p ; 1 ; 1 ; 1-1 ; 1-1 ; 0xffffff ; asd;;"
+                "p ; 1 ; 1 ; 1,1 ; 1,1 ; 0xffffff ; asd;;"
         ));
     }
 
     @Test
     public void testCreatePlanetCorrectInputParametersEqual() {
-        Planet p = createPlanet("p ; 1 ; 2 ; 3-4 ; 5-6 ; 0xffffff ; asd;;");
+        Planet p = createPlanet("p ; 1 ; 2 ; 3,4 ; 5,6 ; 0xffffff ; asd;;");
         assertEquals(1, p.radius, 0.01);
         assertEquals(2, p.mass, 0.01);
 

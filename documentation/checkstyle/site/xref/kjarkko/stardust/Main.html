@@ -6,47 +6,51 @@
 </head>
 <body>
 <div id="overview"><a href="../../../apidocs/kjarkko/stardust/Main.html">View Javadoc</a></div><pre>
-<a class="jxr_linenumber" name="L1" href="#L1">1</a>   
-<a class="jxr_linenumber" name="L2" href="#L2">2</a>   <strong class="jxr_keyword">package</strong> kjarkko.stardust;
-<a class="jxr_linenumber" name="L3" href="#L3">3</a>   
-<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> java.awt.Color;
-<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> javax.swing.JPanel;
-<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> kjarkko.stardust.gui.ControlPanel;
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> kjarkko.stardust.gui.PlanetCanvas;
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> kjarkko.stardust.gui.StartWindow;
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> kjarkko.stardust.logic.Planet;
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> kjarkko.stardust.logic.Planets;
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> kjarkko.stardust.logic.Settings;
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> kjarkko.stardust.util.Coordinate;
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> kjarkko.stardust.util.Vector;
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>  
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../kjarkko/stardust/Main.html">Main</a> {
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../kjarkko/stardust/gui/PlanetCanvas.html">PlanetCanvas</a> canv;
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>  
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) {
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>          <a href="../../kjarkko/stardust/logic/Planet.html">Planet</a> earth = <strong class="jxr_keyword">new</strong> <a href="../../kjarkko/stardust/logic/Planet.html">Planet</a>(
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>                  <strong class="jxr_keyword">new</strong> <a href="../../kjarkko/stardust/util/Coordinate.html">Coordinate</a>(0, 0), 
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>                  <strong class="jxr_keyword">new</strong> <a href="../../kjarkko/stardust/util/Vector.html">Vector</a>(0, 0), 
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>                  5.97237E24, 
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>                  Color.blue, 
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>                  <span class="jxr_string">"earth"</span>, 
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>                  100);
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_comment">//        Planet moon = new Planet(</em>
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_comment">//                new Coordinate(384399000, 0), </em>
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_comment">//                new Vector(0, 1022), </em>
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_comment">//                7.324E22, </em>
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_comment">//                Color.white, </em>
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_comment">//                "moon", </em>
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_comment">//                50);</em>
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>          
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>          Planets.get().add(earth);
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_comment">//        Planets.get().add(moon);</em>
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>          
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>          canv = <strong class="jxr_keyword">new</strong> <a href="../../kjarkko/stardust/gui/PlanetCanvas.html">PlanetCanvas</a>();
-<a class="jxr_linenumber" name="L38" href="#L38">38</a>          canv.setDoubleBuffered(<strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L39" href="#L39">39</a>          StartWindow.start();
-<a class="jxr_linenumber" name="L40" href="#L40">40</a>      }
-<a class="jxr_linenumber" name="L41" href="#L41">41</a>  }
+<a class="jxr_linenumber" name="L1" href="#L1">1</a>   <strong class="jxr_keyword">package</strong> kjarkko.stardust;
+<a class="jxr_linenumber" name="L2" href="#L2">2</a>   
+<a class="jxr_linenumber" name="L3" href="#L3">3</a>   <strong class="jxr_keyword">import</strong> java.awt.Color;
+<a class="jxr_linenumber" name="L4" href="#L4">4</a>   <strong class="jxr_keyword">import</strong> kjarkko.stardust.gui.StartWindow;
+<a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">import</strong> kjarkko.stardust.logic.Planet;
+<a class="jxr_linenumber" name="L6" href="#L6">6</a>   <strong class="jxr_keyword">import</strong> kjarkko.stardust.logic.Planets;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> kjarkko.stardust.logic.Settings;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> kjarkko.stardust.util.Coordinate;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> kjarkko.stardust.util.Vector;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../kjarkko/stardust/Main.html">Main</a> {
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>      
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <a href="../../kjarkko/stardust/logic/Planet.html">Planet</a> EARTH = <strong class="jxr_keyword">new</strong> <a href="../../kjarkko/stardust/logic/Planet.html">Planet</a>(
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>              <strong class="jxr_keyword">new</strong> <a href="../../kjarkko/stardust/util/Coordinate.html">Coordinate</a>(0, 0),
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>              <strong class="jxr_keyword">new</strong> <a href="../../kjarkko/stardust/util/Vector.html">Vector</a>(0, 0),
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>              5.97237E24,
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>              Color.blue,
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>              <span class="jxr_string">"earth"</span>,
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>              100);
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <a href="../../kjarkko/stardust/logic/Planet.html">Planet</a> MOON = <strong class="jxr_keyword">new</strong> <a href="../../kjarkko/stardust/logic/Planet.html">Planet</a>(
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>              <strong class="jxr_keyword">new</strong> <a href="../../kjarkko/stardust/util/Coordinate.html">Coordinate</a>(384399000, 0),
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>              <strong class="jxr_keyword">new</strong> <a href="../../kjarkko/stardust/util/Vector.html">Vector</a>(0, 1022),
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>              7.324E22,
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>              Color.white,
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>              <span class="jxr_string">"moon"</span>,
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>              50);
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment">     * Start the program.</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_javadoccomment">     * @param args Not used.</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) {
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>          Settings.setDefault();
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>          Planets.clear();
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>          StartWindow.start();
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>          <em class="jxr_comment">//earthAndMoon();</em>
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>      }
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>  
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> earthAndMoon() {
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>          Planets.get().add(EARTH);
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>          Planets.get().add(MOON);
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>      }
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2016. All rights reserved.</div>

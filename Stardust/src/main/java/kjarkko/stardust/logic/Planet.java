@@ -3,11 +3,10 @@ package kjarkko.stardust.logic;
 import kjarkko.stardust.util.Vector;
 import kjarkko.stardust.util.Coordinate;
 import java.awt.Color;
-import java.awt.Graphics;
 import static java.lang.Math.*;
 
 /**
- * A single planet with a location, velocity and such
+ * A single planet with a location, velocity and such.
  *
  * @author jarkko
  */
@@ -16,7 +15,7 @@ public class Planet {
     private static int idCounter = 0;
 
     /**
-     * Generates a unique id for each planet
+     * Generates a unique id for each planet.
      *
      * @return A unique id
      */
@@ -25,7 +24,7 @@ public class Planet {
     }
 
     /**
-     * Resets the id counter to 0
+     * Resets the id counter to 0.
      */
     public static void resetId() {
         idCounter = 0;
@@ -47,6 +46,16 @@ public class Planet {
     private final Color color;
     private final String name;
 
+    /**
+     * Create a new planet object.
+     *
+     * @param location (x, y) coordinate
+     * @param movement vector movement
+     * @param mass kilograms
+     * @param color color
+     * @param name name of the planet
+     * @param radius meters
+     */
     public Planet(Coordinate location, Vector movement, double mass,
             Color color, String name, int radius) {
         this.id = createId();
@@ -60,9 +69,9 @@ public class Planet {
     }
 
     /**
-     * Uses the tempForce variable to update the velocity and then updates the
+     * Uses the tempForce variable to update the velocity, then updates the
      * location based on the current velocity of the planet and the elapsed time
-     * since the last tick
+     * since the last tick.
      *
      * @param elapsedTime The time elapsed in seconds since the last tick in the
      * simulation
@@ -92,37 +101,28 @@ public class Planet {
 
     /**
      * Calculates the force between itself and the planet given as the
-     * parameter, adds the result to the tempForce variable
+     * parameter, adds the result to the tempForce variable.
      *
      * @param p See above
-     * @return
+     * @return The gravitational force between the two planets (vector).
      */
     public Vector gravitationalForce(Planet p) {
         double force = 6.67259E-11
                 * ((mass * p.mass) / pow(location.distance(p.location), 2));
-        
+
         double alpha = Math.atan(location.yDistance(p.location) / location.xDistance(p.location));
 
         double forceX = force * cos(alpha);
-        if(p.location.getX() < location.getX()){
+        if (p.location.getX() < location.getX()) {
             forceX = -forceX;
         }
         double forceY = force * sin(alpha);
-        if(p.location.getY() < location.getY()){
+        if (p.location.getY() < location.getY()) {
             forceY = -forceY;
         }
 
         return new Vector(forceX, forceY);
     }
-    
-//    public void draw(Graphics g){
-//        g.setColor(color);
-//        
-//        int x = 350 - (radius >> 1) + (int)(location.getX()/Settings.getDistancePerPixel());
-//        int y = 350 - (radius >> 1) + (int)(location.getY()/Settings.getDistancePerPixel());
-//        
-//        g.fillOval(x, y, radius, radius);
-//    }
 
     public Color getColor() {
         return color;
@@ -132,10 +132,6 @@ public class Planet {
         return location;
     }
 
-    /**
-     *
-     * @return The current velocity of the planet in m/s as a vector
-     */
     public Vector getVelocity() {
         return velocity;
     }
@@ -144,10 +140,6 @@ public class Planet {
         return name;
     }
 
-    /**
-     * @see kjarkko.stardust.logic.Planet#tempForce
-     * @return The tempForce vector
-     */
     public Vector getTempForce() {
         return tempForce;
     }

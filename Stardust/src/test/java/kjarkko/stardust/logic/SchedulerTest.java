@@ -37,7 +37,7 @@ public class SchedulerTest {
     @After
     public void tearDown() {
     }
-
+/*
     @Test
     public void testUpdateFreqHasChanged() {
         start();
@@ -49,7 +49,7 @@ public class SchedulerTest {
         
         sleep();
     }
-
+*/
     @Test
     public void testIsRunning() {
         start();

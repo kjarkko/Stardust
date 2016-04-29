@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -26,21 +26,25 @@
           <Group type="102" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="planetName" alignment="0" max="32767" attributes="0"/>
-                      <Component id="planetColor" alignment="0" max="32767" attributes="0"/>
-                      <Component id="planetRadius" alignment="0" pref="249" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="planetName" alignment="0" max="32767" attributes="0"/>
+                          <Component id="planetColor" alignment="0" max="32767" attributes="0"/>
+                          <Component id="planetRadius" alignment="0" pref="249" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="speedUp" max="32767" attributes="0"/>
+                          <Component id="speedDown" max="32767" attributes="0"/>
+                          <Component id="speedMultiplierLabel" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="planetMass" min="-2" pref="249" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="planetMassMagnitude" min="-2" pref="249" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="planetYvel" min="-2" pref="249" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="planetYvelMagn" min="-2" pref="249" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="planetYvel" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
                   <Component id="createPlanetButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -48,10 +52,7 @@
                           <Component id="planetXvel" alignment="0" min="-2" pref="249" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="planetYlocMagn" min="-2" pref="249" max="-2" attributes="0"/>
-                          <Component id="planetXvelMagn" min="-2" pref="249" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="planetYlocMagn" min="-2" pref="249" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="planetXLoc" min="-2" pref="249" max="-2" attributes="0"/>
@@ -66,11 +67,20 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="planetName" min="-2" pref="33" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="planetName" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="speedUp" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="planetColor" min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="planetColor" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="speedDown" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="planetRadius" min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="planetRadius" pref="30" max="32767" attributes="0"/>
+                  <Component id="speedMultiplierLabel" max="32767" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="planetMass" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
@@ -87,15 +97,9 @@
                   <Component id="planetYlocMagn" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="planetXvel" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="planetXvelMagn" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-              </Group>
+              <Component id="planetXvel" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="planetYvel" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="planetYvelMagn" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-              </Group>
+              <Component id="planetYvel" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="createPlanetButton" min="-2" max="-2" attributes="0"/>
           </Group>
@@ -195,7 +199,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="planetXlocMagn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Magnitude"/>
+        <Property name="text" type="java.lang.String" value="X coordinate magnitude"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[100, 30]"/>
         </Property>
@@ -206,7 +210,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="planetMassMagnitude">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Magnitude"/>
+        <Property name="text" type="java.lang.String" value="Mass magnitude"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[100, 30]"/>
         </Property>
@@ -217,7 +221,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="planetYlocMagn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Magnitude"/>
+        <Property name="text" type="java.lang.String" value="Y coordinate magnitude"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[100, 30]"/>
         </Property>
@@ -226,27 +230,26 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="planetYlocMagnActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="planetYvelMagn">
+    <Component class="javax.swing.JButton" name="speedUp">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Magnitude"/>
-        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[100, 30]"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="Speed up"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="planetYvelMagnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="speedUpActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="planetXvelMagn">
+    <Component class="javax.swing.JButton" name="speedDown">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Magnitude"/>
-        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[100, 30]"/>
-        </Property>
+        <Property name="text" type="java.lang.String" value="speed down"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="planetXvelMagnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="speedDownActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="speedMultiplierLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="10"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

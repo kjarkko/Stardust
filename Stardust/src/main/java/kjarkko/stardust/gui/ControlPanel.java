@@ -8,20 +8,25 @@ package kjarkko.stardust.gui;
 import java.awt.Color;
 import kjarkko.stardust.logic.Planet;
 import kjarkko.stardust.logic.Planets;
+import kjarkko.stardust.logic.Settings;
 import kjarkko.stardust.util.Coordinate;
 import kjarkko.stardust.util.Vector;
 
 /**
+ * Used for modifying the program.
  *
  * @author jarkko
  */
 public class ControlPanel extends javax.swing.JFrame {
 
     /**
-     * Creates new form ControlPanel
+     * Creates new form ControlPanel.
      */
+    private String speedMutiplier = Settings.getSimulationSpeedMultiplier() + "";
+
     public ControlPanel() {
         initComponents();
+        speedMultiplierLabel.setText(speedMutiplier);
     }
 
     /**
@@ -45,8 +50,9 @@ public class ControlPanel extends javax.swing.JFrame {
         planetXlocMagn = new javax.swing.JTextField();
         planetMassMagnitude = new javax.swing.JTextField();
         planetYlocMagn = new javax.swing.JTextField();
-        planetYvelMagn = new javax.swing.JTextField();
-        planetXvelMagn = new javax.swing.JTextField();
+        speedUp = new javax.swing.JButton();
+        speedDown = new javax.swing.JButton();
+        speedMultiplierLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,7 +117,7 @@ public class ControlPanel extends javax.swing.JFrame {
             }
         });
 
-        planetXlocMagn.setText("Magnitude");
+        planetXlocMagn.setText("X coordinate magnitude");
         planetXlocMagn.setMinimumSize(new java.awt.Dimension(100, 30));
         planetXlocMagn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,7 +125,7 @@ public class ControlPanel extends javax.swing.JFrame {
             }
         });
 
-        planetMassMagnitude.setText("Magnitude");
+        planetMassMagnitude.setText("Mass magnitude");
         planetMassMagnitude.setMinimumSize(new java.awt.Dimension(100, 30));
         planetMassMagnitude.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,7 +133,7 @@ public class ControlPanel extends javax.swing.JFrame {
             }
         });
 
-        planetYlocMagn.setText("Magnitude");
+        planetYlocMagn.setText("Y coordinate magnitude");
         planetYlocMagn.setMinimumSize(new java.awt.Dimension(100, 30));
         planetYlocMagn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,21 +141,21 @@ public class ControlPanel extends javax.swing.JFrame {
             }
         });
 
-        planetYvelMagn.setText("Magnitude");
-        planetYvelMagn.setMinimumSize(new java.awt.Dimension(100, 30));
-        planetYvelMagn.addActionListener(new java.awt.event.ActionListener() {
+        speedUp.setText("Speed up");
+        speedUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                planetYvelMagnActionPerformed(evt);
+                speedUpActionPerformed(evt);
             }
         });
 
-        planetXvelMagn.setText("Magnitude");
-        planetXvelMagn.setMinimumSize(new java.awt.Dimension(100, 30));
-        planetXvelMagn.addActionListener(new java.awt.event.ActionListener() {
+        speedDown.setText("speed down");
+        speedDown.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                planetXvelMagnActionPerformed(evt);
+                speedDownActionPerformed(evt);
             }
         });
+
+        speedMultiplierLabel.setText("10");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -158,27 +164,28 @@ public class ControlPanel extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(planetName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(planetColor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(planetRadius, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(planetName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(planetColor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(planetRadius, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(speedUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(speedDown, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(speedMultiplierLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(planetMass, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(planetMassMagnitude, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(planetYvel, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(planetYvelMagn, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(planetYvel, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(createPlanetButton)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(planetYloc, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(planetXvel, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(planetYlocMagn, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(planetXvelMagn, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(planetYlocMagn, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(planetXLoc, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -188,11 +195,17 @@ public class ControlPanel extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(planetName, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(planetName, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(speedUp))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(planetColor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(planetColor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(speedDown))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(planetRadius, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(planetRadius, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(speedMultiplierLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(planetMass, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,13 +219,9 @@ public class ControlPanel extends javax.swing.JFrame {
                     .addComponent(planetYloc, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(planetYlocMagn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(planetXvel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(planetXvelMagn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(planetXvel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(planetYvel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(planetYvelMagn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(planetYvel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(createPlanetButton))
         );
@@ -247,15 +256,20 @@ public class ControlPanel extends javax.swing.JFrame {
     private void createPlanetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createPlanetButtonActionPerformed
         // TODO add your handling code here:
         try {
+            double mass = Double.parseDouble(planetMass.getText())
+                    * Math.pow(10, Integer.parseInt(planetMassMagnitude.getText()));
+            double xLoc = Double.parseDouble(planetXLoc.getText())
+                    * Math.pow(10, Integer.parseInt(planetXlocMagn.getText()));
+            double yLoc = Double.parseDouble(planetYloc.getText())
+                    * Math.pow(10, Integer.parseInt(planetYlocMagn.getText()));
+
             Planets.get().add(
                     new Planet(
-                            new Coordinate(
-                                    Double.parseDouble(planetXLoc.getText()),
-                                    Double.parseDouble(planetYloc.getText())),
+                            new Coordinate(xLoc, yLoc),
                             new Vector(
                                     Double.parseDouble(planetXvel.getText()),
                                     Double.parseDouble(planetYvel.getText())),
-                            Double.parseDouble(planetMass.getText()),
+                            mass,
                             Color.decode(planetColor.getText()),
                             planetName.getText(),
                             Integer.parseInt(planetRadius.getText())
@@ -278,14 +292,29 @@ public class ControlPanel extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_planetYlocMagnActionPerformed
 
-    private void planetYvelMagnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_planetYvelMagnActionPerformed
+    private void speedUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speedUpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_planetYvelMagnActionPerformed
+        int speed = Settings.getSimulationSpeedMultiplier();
+        if (speed <= 100000) {
+            Settings.setSimulationSpeedMultiplier(speed * 10);
+            speedMutiplier = speed * 10 + "";
+            speedMultiplierLabel.setText(speedMutiplier);
+        }
+    }//GEN-LAST:event_speedUpActionPerformed
 
-    private void planetXvelMagnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_planetXvelMagnActionPerformed
+    private void speedDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speedDownActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_planetXvelMagnActionPerformed
+        int speed = Settings.getSimulationSpeedMultiplier();
+        if (speed >= 10) {
+            Settings.setSimulationSpeedMultiplier(speed / 10);
+            speedMutiplier = speed / 10 + "";
+            speedMultiplierLabel.setText(speedMutiplier);
+        }
+    }//GEN-LAST:event_speedDownActionPerformed
 
+    /**
+     * Creates a new control panel.
+     */
     public static void start() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -328,10 +357,11 @@ public class ControlPanel extends javax.swing.JFrame {
     private javax.swing.JTextField planetXLoc;
     private javax.swing.JTextField planetXlocMagn;
     private javax.swing.JTextField planetXvel;
-    private javax.swing.JTextField planetXvelMagn;
     private javax.swing.JTextField planetYloc;
     private javax.swing.JTextField planetYlocMagn;
     private javax.swing.JTextField planetYvel;
-    private javax.swing.JTextField planetYvelMagn;
+    private javax.swing.JButton speedDown;
+    private javax.swing.JLabel speedMultiplierLabel;
+    private javax.swing.JButton speedUp;
     // End of variables declaration//GEN-END:variables
 }

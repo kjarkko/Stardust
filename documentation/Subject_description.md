@@ -5,4 +5,5 @@
   Basic functionality will include adding and removing planets, changing simulation speed, zooming in and out and moving the camera around.
 
 ![Class diagram](class_diagram3.png)
-![Sequence diagram](Planet_creation_seqDiagram.png)
+![Sequence diagram 1](Planet_creation_seqDiagram.png)
+![Sequence diagram 2](filereader.png)

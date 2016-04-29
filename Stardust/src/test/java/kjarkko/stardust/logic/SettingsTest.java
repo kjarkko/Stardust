@@ -44,7 +44,7 @@ public class SettingsTest {
         assertEquals(17, getScreenRefreshRateMS());
         assertEquals(5, getPlanetUpdateRateMS());
         assertEquals(1, getSimulationSpeedMultiplier());
-        assertEquals((int) (1000 / 5), getElapsedTime());
+        assertEquals(1/5, getElapsedTime(), 0.01);
     }
 
     @Test

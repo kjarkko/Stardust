@@ -1,28 +1,27 @@
 package kjarkko.stardust.logic;
 
-import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import kjarkko.stardust.util.Vector;
 
 /**
- * an object designed to hold instances of planets and some functionality
- * related to them
+ * An object designed to hold instances of planets and some functionality
+ * related to them.
  *
  * @author jarkko
  */
 public class Planets {
 
     /**
-     * The only instance of this object to exist
+     * The only instance of this object to exist.
      */
     private static Planets instance;
 
     /**
+     * The only instance of this object to exist, creates one if does not exist.
      *
-     * @return The only instance of this object to exist, creates one if does
-     * not exist.
+     * @return Instance.
      */
     public static Planets get() {
         if (instance == null) {
@@ -32,7 +31,7 @@ public class Planets {
     }
 
     /**
-     * sets the instance of this object to null
+     * Sets the instance of this object to null.
      *
      * @see kjarkko.stardust.logic.Planets#instance
      */
@@ -46,14 +45,10 @@ public class Planets {
     private Planets() {
         planets = new ArrayList();
     }
-//    
-//    public void drawAll(Graphics g){
-//        planets.forEach(p -> p.draw(g));
-//    }
 
     /**
      * Adds the planet to the collection of planets held inside of this object,
-     * given that it is not null
+     * given that it is not null.
      *
      * @param p The planet to be added
      */
@@ -64,8 +59,8 @@ public class Planets {
     }
 
     /**
-     * adds every planet that is not null to the collection of planets held
-     * inside of this object
+     * Adds every planet that is not null to the collection of planets held
+     * inside of this object.
      *
      * @param c the collection of planets to be added
      */
@@ -75,7 +70,7 @@ public class Planets {
     }
 
     /**
-     * removes the planet with the given id from this collection if it exists
+     * Removes the planet with the given id from this collection if it exists.
      *
      * @param id the id of the planet to be removed
      */
@@ -83,10 +78,9 @@ public class Planets {
         planets.removeIf((p) -> p.id == id);
     }
 
-    // Planet.gravitatianalForce not fully implemented yet, these will not work
     /**
-     * calculates the force between all of the planets and updates their
-     * location
+     * Calculates the force between all of the planets and updates their
+     * location.
      *
      * @see kjarkko.stardust.logic.Planets#calculateForces()
      * @see kjarkko.stardust.logic.Planets#updateLocations(int)
@@ -97,8 +91,8 @@ public class Planets {
     }
 
     /**
-     * calculates the force between each planet and adds it to their tempForce
-     * variable
+     * Calculates the force between each planet and adds it to their tempForce
+     * variable.
      *
      * @see kjarkko.stardust.logic.Planet#tempForce
      */
@@ -113,6 +107,7 @@ public class Planets {
     }
 
     /**
+     * Updates the location of every planet based on the time elapsed.
      *
      * @param elapsedTime the time elapsed in the simulation since the last tick
      */
@@ -121,6 +116,7 @@ public class Planets {
     }
 
     /**
+     * Number of planets.
      *
      * @return the amount of planets held in this object
      */
@@ -128,6 +124,12 @@ public class Planets {
         return planets.size();
     }
 
+    /**
+     * Iterator of the planets held within this object.
+     *
+     * @return The iterator containing all of the planets held within this
+     * object
+     */
     public Iterator<Planet> getPlanetIterator() {
         return planets.iterator();
     }

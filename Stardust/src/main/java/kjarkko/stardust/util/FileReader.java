@@ -1,7 +1,5 @@
 package kjarkko.stardust.util;
 
-import kjarkko.stardust.util.Vector;
-import kjarkko.stardust.util.Coordinate;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,15 +11,18 @@ public class FileReader {
 
     private static ArrayList<Planet> createdPlanets;
 
+    /**
+     * Removes all the planets from the list upheld by this class.
+     */
     public static void reset() {
         createdPlanets = new ArrayList();
     }
 
-    public static void parseFile() {
-        // call parseFile(String) with the default location
-        throw new UnsupportedOperationException("not implemented yet.");
-    }
-
+    /**
+     * Parses the file in the given location.
+     *
+     * @param location The location of the file to be parsed
+     */
     public static void parseFile(String location) {
         Scanner scanner;
         createdPlanets = new ArrayList();
@@ -31,12 +32,21 @@ public class FileReader {
             System.out.println("No file found in: " + location);
             return;
         }
+
         scanner.forEachRemaining((s) -> parseLine(s));
         scanner.close();
     }
 
+    /**
+     * Parses the line given as the parameter. Example of a planet: p ; radius ;
+     * mass ; locX , locY ; vecX , vecY ; color ; name;
+     *
+     * @see kjarkko.stardust.util.FileReader#createPlanet(java.lang.String)
+     * @see kjarkko.stardust.util.FileReader#modifySettings(java.lang.String)
+     *
+     * @param line The line to be parsed
+     */
     public static void parseLine(String line) {
-        // Example of a planet: p;radius;mass;locX|locY;vecX|vecY;color;name;
         if (line.length() < 1) {
             return;
         }
@@ -58,6 +68,12 @@ public class FileReader {
         }
     }
 
+    /**
+     * Creates a new planet object from the line given as the parameter.
+     *
+     * @param line The line to be parsed
+     * @return The planet created, null if invalid input
+     */
     public static Planet createPlanet(String line) {
         int radius;
         double mass;
@@ -94,11 +110,22 @@ public class FileReader {
         return new Planet(location, movement, mass, color, name, radius);
     }
 
+    /**
+     * Modify settings according to the string given as the parameter.
+     *
+     * @param line modifications
+     */
     public static void modifySettings(String line) {
         throw new UnsupportedOperationException();
     }
 
+    /**
+     * The planets created by this class.
+     *
+     * @return The planets created by this class
+     */
     public static ArrayList<Planet> getCreatedPlanets() {
         return createdPlanets;
     }
+
 }

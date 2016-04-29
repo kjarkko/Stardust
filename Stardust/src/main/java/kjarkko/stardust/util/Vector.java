@@ -3,7 +3,7 @@ package kjarkko.stardust.util;
 import static java.lang.Math.*;
 
 /**
- * a simple (double, double) vector
+ * A simple (double, double) vector.
  *
  * @author jarkko
  */
@@ -12,6 +12,12 @@ public class Vector {
     private double x;
     private double y;
 
+    /**
+     * New vector.
+     *
+     * @param vx Value.
+     * @param vy Value.
+     */
     public Vector(double vx, double vy) {
         this.x = vx;
         this.y = vy;
@@ -26,7 +32,7 @@ public class Vector {
     }
 
     /**
-     * sums the components of the parameter to this vector
+     * Sums the components of the parameter to this vector.
      *
      * @param v the vector to be added
      */
@@ -36,6 +42,7 @@ public class Vector {
     }
 
     /**
+     * Returns the copy of this vector with the values negated.
      *
      * @return copy of this vector with the values negated
      */
@@ -44,7 +51,7 @@ public class Vector {
     }
 
     /**
-     * sets the x and y components to zero
+     * sets the x and y components to zero.
      */
     public void reset() {
         x = 0;
@@ -52,8 +59,9 @@ public class Vector {
     }
 
     /**
+     * Returns the length of this vector.
      *
-     * @return the length(?) of this vector
+     * @return the length of this vector
      */
     public double value() {
         return sqrt(pow(x, 2) + pow(y, 2));
