@@ -24,6 +24,9 @@ public class ControlPanel extends javax.swing.JFrame {
      */
     private String speedMutiplier = Settings.getSimulationSpeedMultiplier() + "";
 
+    /**
+     * Creates a new ControlPanel object.
+     */
     public ControlPanel() {
         initComponents();
         speedMultiplierLabel.setText(speedMutiplier);
@@ -254,7 +257,6 @@ public class ControlPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_planetXLocActionPerformed
 
     private void createPlanetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createPlanetButtonActionPerformed
-        // TODO add your handling code here:
         try {
             double mass = Double.parseDouble(planetMass.getText())
                     * Math.pow(10, Integer.parseInt(planetMassMagnitude.getText()));
@@ -293,7 +295,6 @@ public class ControlPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_planetYlocMagnActionPerformed
 
     private void speedUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speedUpActionPerformed
-        // TODO add your handling code here:
         int speed = Settings.getSimulationSpeedMultiplier();
         if (speed <= 100000) {
             Settings.setSimulationSpeedMultiplier(speed * 10);
@@ -303,7 +304,6 @@ public class ControlPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_speedUpActionPerformed
 
     private void speedDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_speedDownActionPerformed
-        // TODO add your handling code here:
         int speed = Settings.getSimulationSpeedMultiplier();
         if (speed >= 10) {
             Settings.setSimulationSpeedMultiplier(speed / 10);
