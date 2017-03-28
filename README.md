@@ -1,5 +1,6 @@
 # Stardust
-  Stardust is a program that aims to simulate the movement and force between planets as accurately as possible in a 2D plane.
+  Stardust is a program that aims to simulate the movement and force between planets in a 2D plane.
+  Made for the Helsinki University course 'Aineopintojen harjoitustyö: ohjelmointi'
 
 ### Documentation
 - [Subject description](documentation/Subject_description.md)
